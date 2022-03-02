@@ -24,6 +24,8 @@ To run the project locally:
 ## Project Execution
 
 1. Initialize project with create-react-app and repo in GitHub.
+1. Create Cell component with handler and styles for each of the required phases.
+1. Create Reset button component
 
 ### About the project tools
 

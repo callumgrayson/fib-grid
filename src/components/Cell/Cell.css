@@ -1,0 +1,30 @@
+.cell {
+  box-sizing: border-box;
+  border: 2px solid lightgray;
+  background-color: black;
+  min-width: 20px;
+  min-height: 20px;
+  max-width: 5vmin;
+  max-height: 5vmin;
+  aspect-ratio: 1;
+  font-size: 2vh;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.cell:hover {
+  cursor: pointer;
+}
+
+.color-default {
+  background-color: inherit;
+}
+.color-fibClearing {
+  background-color: darkred;
+}
+.color-incrementing {
+  background-color: darkgreen;
+}
