@@ -25,7 +25,8 @@ To run the project locally:
 
 1. Initialize project with create-react-app and repo in GitHub.
 1. Create Cell component with handler and styles for each of the required phases.
-1. Create Reset button component
+1. Create Reset button component.
+1. Create a grid builder to create the array of arrays.
 
 ### About the project tools
 

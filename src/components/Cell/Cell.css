@@ -2,8 +2,8 @@
   box-sizing: border-box;
   border: 2px solid lightgray;
   background-color: black;
-  min-width: 20px;
-  min-height: 20px;
+  min-width: 40px;
+  min-height: 40px;
   max-width: 5vmin;
   max-height: 5vmin;
   aspect-ratio: 1;
