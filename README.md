@@ -27,6 +27,15 @@ To run the project locally:
 1. Create Cell component with handler and styles for each of the required phases.
 1. Create Reset button component.
 1. Create a grid builder to create the array of arrays.
+1. Create phase handling with timing and array handling of styles.
+1. Create algorithm to check for fibonacci sequences of the form 1-1-2-3-5.
+1. Create phase handler to set cells count and style during clearning.
+
+## Project Review
+
+1. Add type definitions across all relevant files.
+1. Add tests to ensure functionality upon future additions/upgrades.
+1. Abstract some of the code into reusable functions.
 
 ### About the project tools
 

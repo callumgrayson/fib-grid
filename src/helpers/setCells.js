@@ -1,11 +1,6 @@
 import { classNames_Cell } from "../CONSTANTS";
 
-function setCells({ x, y, grid, phase }) {
-  // console.log("x, y", x, y);
-  // console.log("grid", grid);
-  // console.log("grid[y][x]", grid[y][x]);
-  // console.log("setCells phase", phase);
-
+function setCells({ x, y, grid, phase, cellsToClear }) {
   // Phase 1
   if (phase === 1) {
     // Set all the row cells
@@ -42,31 +37,21 @@ function setCells({ x, y, grid, phase }) {
 
   // Phase 2
   if (phase === 2) {
-    grid[y][x].className = classNames_Cell.clear;
-    // Set all the row cells
-    // for (let row = 0; row < grid.length; row++) {
-    //   // to incrementing style
-    //   grid[row][x].className = classNames_Cell.clear;
-    // }
+    // Set style to "clearing"
+    for (let i = 0; i < cellsToClear.length; i++) {
+      const [col, row] = cellsToClear[i];
 
-    // Set all the column cells
-    // for (let col = 0; col < grid[0].length; col++) {
-    //   // to incrementing style
-    //   grid[y][col].className = classNames_Cell.clear;
-    // }
+      grid[row][col].className = classNames_Cell.clear;
+    }
   }
   // Phase 2.1
   if (phase === 2.1) {
-    // Set all the row cells
-    for (let row = 0; row < grid.length; row++) {
-      // to incrementing style
-      grid[row][x].className = classNames_Cell.default;
-    }
+    // Set style to "default" and count to zero
+    for (let i = 0; i < cellsToClear.length; i++) {
+      const [col, row] = cellsToClear[i];
 
-    // Set all the column cells
-    for (let col = 0; col < grid[0].length; col++) {
-      // to incrementing style
-      grid[y][col].className = classNames_Cell.default;
+      grid[row][col].className = classNames_Cell.default;
+      grid[row][col].count = 0;
     }
   }
 }

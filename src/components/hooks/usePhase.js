@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
 const timeoutDurations = {
-  incrementing: 400,
+  incrementing: 300,
   fibPreClearning: 0,
-  fibClearning: 1000,
+  fibClearning: 2000,
 };
 
 function usePhase(initialValue) {

@@ -13,18 +13,19 @@ function Reset({ handler }) {
     </button>
   );
 }
-
-const GRID_SIZE = 3;
+const GRID_SIZE = 50;
+const gridZeros = buildGrid(GRID_SIZE);
 
 function App() {
   const timeout = useRef(null);
-  const grid = useRef(buildGrid(GRID_SIZE));
+  const grid = useRef(gridZeros);
+  const cellsToClear = useRef(null);
   const [phase, setPhase] = usePhase(0);
   const [clickedCell, setClickedCell] = useState(null);
   const [flop, setFlop] = useState(false);
 
   function handleReset() {
-    grid.current = buildGrid(GRID_SIZE);
+    grid.current = gridZeros;
     setPhase(0);
     setClickedCell(null);
     setFlop(!flop);
@@ -46,18 +47,24 @@ function App() {
         y: clickedCell.y,
         grid: grid.current,
         phase: phase,
+        cellsToClear: cellsToClear.current,
       });
+      if (phase === 2.1) {
+        cellsToClear.current = null;
+      }
     }
 
     if (phase === 2) {
-      const cellsToClear = checkCellsToClear(clickedCell, grid.current);
+      const cells = checkCellsToClear(grid.current);
 
-      if (cellsToClear.length) {
+      if (cells.length) {
+        cellsToClear.current = cells;
         setCells({
           x: clickedCell.x,
           y: clickedCell.y,
           grid: grid.current,
           phase: phase,
+          cellsToClear: cells,
         });
       } else {
         setPhase(0);
@@ -67,28 +74,37 @@ function App() {
 
   return (
     <div className="App">
-      <Reset handler={handleReset} />
-      <div>
-        Clicked cell: x = {clickedCell ? clickedCell.x : null}, y ={" "}
-        {clickedCell ? clickedCell.y : null}{" "}
-      </div>
-      <div>phase: {phase}</div>
-      <div>timeout: {timeout.current}</div>
-      {grid.current &&
-        grid.current.map((row, idxRow) => (
-          <div key={idxRow} className="row">
-            {row.map((cell, idxCell) => (
-              <Cell
-                key={idxCell}
-                x={idxCell}
-                y={idxRow}
-                classNames={[cell.className]}
-                cellCount={cell.count}
-                handleClick={() => handleClickCell({ x: idxCell, y: idxRow })}
-              />
-            ))}
+      <div className="col-box">
+        <div className="col-1">
+          <Reset handler={handleReset} />
+          <div>
+            Clicked cell: x = {clickedCell ? clickedCell.x : null}, y ={" "}
+            {clickedCell ? clickedCell.y : null}{" "}
           </div>
-        ))}
+          <div>phase: {phase}</div>
+          <div>timeout: {timeout.current}</div>
+        </div>
+        <div className="col-2">
+          {grid.current &&
+            grid.current.map((row, idxRow) => (
+              <div key={idxRow} className="row">
+                {row.map((cell, idxCell) => (
+                  <Cell
+                    key={idxCell}
+                    x={idxCell}
+                    y={idxRow}
+                    classNames={[cell.className]}
+                    cellCount={cell.count}
+                    handleClick={() =>
+                      handleClickCell({ x: idxCell, y: idxRow })
+                    }
+                  />
+                ))}
+              </div>
+            ))}
+        </div>
+        <div className="col-1"></div>
+      </div>
     </div>
   );
 }

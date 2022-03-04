@@ -8,3 +8,14 @@
 .row {
   display: flex;
 }
+
+.col-box {
+  display: flex;
+  justify-content: space-around;
+}
+.col-1 {
+  flex: 200px;
+}
+.col-2 {
+  flex: 1;
+}
