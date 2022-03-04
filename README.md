@@ -4,7 +4,7 @@ This is an assignment for a job at a company in Amsterdam
 
 ## Running the project
 
-A demo of the project can be found here: xxxxxx.github.com
+A demo of the project can be found here: [https://callumgrayson.github.io/fib-grid/](https://callumgrayson.github.io/fib-grid/)
 
 To run the project locally:
 
