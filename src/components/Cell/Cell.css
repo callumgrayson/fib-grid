@@ -1,12 +1,12 @@
 .cell {
   box-sizing: border-box;
   border: 1px solid lightgray;
+  margin: -0.5px;
   background-color: black;
   min-width: 1.9vmin;
   min-height: 1.9vmin;
   max-width: 5vmin;
   max-height: 5vmin;
-  aspect-ratio: 1;
   font-size: 1vmin;
   color: white;
   display: flex;

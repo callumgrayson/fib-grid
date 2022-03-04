@@ -4,10 +4,6 @@ export const classNames_Cell = {
   default: "color-default",
 };
 
-// export phases = {
-
-// }
-
 const CONSTANTS = {
   classNames_Cell,
 };

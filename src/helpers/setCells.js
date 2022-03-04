@@ -2,6 +2,7 @@ import { classNames_Cell } from "../CONSTANTS";
 
 function setCells({ x, y, grid, phase, cellsToClear }) {
   // Phase 1
+  // Increment cells and highlight them
   if (phase === 1) {
     // Set all the row cells
     for (let row = 0; row < grid.length; row++) {
@@ -22,6 +23,7 @@ function setCells({ x, y, grid, phase, cellsToClear }) {
   }
 
   // Phase 1.1
+  // Remove highlights while checking for sequences
   if (phase === 1.1) {
     // Set all the row cells
     for (let row = 0; row < grid.length; row++) {
@@ -36,20 +38,19 @@ function setCells({ x, y, grid, phase, cellsToClear }) {
   }
 
   // Phase 2
+  // Set style to "clearing"
   if (phase === 2) {
-    // Set style to "clearing"
     for (let i = 0; i < cellsToClear.length; i++) {
       const [col, row] = cellsToClear[i];
-
       grid[row][col].className = classNames_Cell.clear;
     }
   }
+
   // Phase 2.1
+  // Set style to "default" and count to zero
   if (phase === 2.1) {
-    // Set style to "default" and count to zero
     for (let i = 0; i < cellsToClear.length; i++) {
       const [col, row] = cellsToClear[i];
-
       grid[row][col].className = classNames_Cell.default;
       grid[row][col].count = 0;
     }

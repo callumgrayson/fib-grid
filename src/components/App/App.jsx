@@ -8,27 +8,25 @@ import "./App.css";
 
 function Reset({ handler }) {
   return (
-    <button type="button" onClick={handler}>
+    <button type="button" onClick={handler} className="reset-button">
       Reset
     </button>
   );
 }
 const GRID_SIZE = 50;
-const gridZeros = buildGrid(GRID_SIZE);
 
 function App() {
-  const timeout = useRef(null);
-  const grid = useRef(gridZeros);
+  const grid = useRef(buildGrid(GRID_SIZE));
   const cellsToClear = useRef(null);
   const [phase, setPhase] = usePhase(0);
   const [clickedCell, setClickedCell] = useState(null);
-  const [flop, setFlop] = useState(false);
+  const [, setFlop] = useState(false);
 
   function handleReset() {
-    grid.current = gridZeros;
+    grid.current = buildGrid(GRID_SIZE);
     setPhase(0);
     setClickedCell(null);
-    setFlop(!flop);
+    setFlop((v) => !v);
   }
 
   function handleClickCell({ x, y }) {
@@ -75,22 +73,14 @@ function App() {
   return (
     <div className="App">
       <div className="col-box">
-        <div className="col-1">
-          <Reset handler={handleReset} />
-          <div>
-            Clicked cell: x = {clickedCell ? clickedCell.x : null}, y ={" "}
-            {clickedCell ? clickedCell.y : null}{" "}
-          </div>
-          <div>phase: {phase}</div>
-          <div>timeout: {timeout.current}</div>
-        </div>
         <div className="col-2">
+          <Reset handler={handleReset} />
           {grid.current &&
             grid.current.map((row, idxRow) => (
               <div key={idxRow} className="row">
                 {row.map((cell, idxCell) => (
                   <Cell
-                    key={idxCell}
+                    key={cell.id}
                     x={idxCell}
                     y={idxRow}
                     classNames={[cell.className]}
@@ -103,7 +93,6 @@ function App() {
               </div>
             ))}
         </div>
-        <div className="col-1"></div>
       </div>
     </div>
   );
