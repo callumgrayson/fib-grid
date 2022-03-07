@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/fib-grid/static/css/main.137126af.css",
-    "main.js": "/fib-grid/static/js/main.626d4348.js",
+    "main.js": "/fib-grid/static/js/main.02d5b590.js",
     "static/js/787.19871cc9.chunk.js": "/fib-grid/static/js/787.19871cc9.chunk.js",
     "index.html": "/fib-grid/index.html",
     "main.137126af.css.map": "/fib-grid/static/css/main.137126af.css.map",
-    "main.626d4348.js.map": "/fib-grid/static/js/main.626d4348.js.map",
+    "main.02d5b590.js.map": "/fib-grid/static/js/main.02d5b590.js.map",
     "787.19871cc9.chunk.js.map": "/fib-grid/static/js/787.19871cc9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.137126af.css",
-    "static/js/main.626d4348.js"
+    "static/js/main.02d5b590.js"
   ]
 }
