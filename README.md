@@ -30,6 +30,7 @@ To run the project locally:
 1. Create phase handling with timing and array handling of styles.
 1. Create algorithm to check for fibonacci sequences of the form 1-1-2-3-5.
 1. Create phase handler to set cells count and style during clearning.
+1. Modify the checking to allow sequences starting with numbers other than 1.
 
 ## Project Review
 
